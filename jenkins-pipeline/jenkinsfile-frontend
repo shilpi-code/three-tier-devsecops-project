@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/codewithmuh/three-tier-devsecops-project.git'
+                git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/shilpi-code/three-tier-devsecops-project.git'
             }
         }
         stage('Sonarqube Analysis') {
@@ -31,7 +31,7 @@ pipeline {
                             -Dsonar.projectKey=frontend \
                             -Dsonar.sources=. \
                             -Dsonar.host.url=http://35.90.64.60:9000 \
-                            -Dsonar.login=sqp_da8698eb40ff90d5733f6d408e0296f75fb74a1f
+                            -Dsonar.login=sqp_4d5ebee546a5f4595f8e04a85377b9d156bdf5b6
                         '''
                     }
                 }
@@ -86,13 +86,13 @@ pipeline {
         }
         stage('Checkout Code') {
             steps {
-                git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/codewithmuh/three-tier-devsecops-project.git'
+                git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/shilpi-code/three-tier-devsecops-project.git'
             }
         }
         stage('Update Deployment file') {
             environment {
                 GIT_REPO_NAME = "three-tier-devsecops-project"
-                GIT_USER_NAME = "codewithmuh"
+                GIT_USER_NAME = "shilpi-code"
             }
             steps {
                 dir('kubernetes-manifests/frontend') {

@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: postgres-volume-claim
+  name: postgres-ebs-claim
   namespace: three-tier
-spec: 
-  accessModes:  
+spec:
+  accessModes:
     - ReadWriteOnce
-  storageClassName: ""
+  storageClassName: postgres-sc
   resources:
     requests:
-      storage: 1Gi
+      storage: 20Gi

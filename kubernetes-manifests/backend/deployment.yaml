@@ -8,7 +8,7 @@ metadata:
     env: demo
 spec: 
   replicas: 1
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -45,6 +45,13 @@ spec:
             value: mydatabase
         ports:
         - containerPort: 8000
+        resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              cpu: "200m"
+              memory: "512Mi"
         livenessProbe: 
           httpGet:
             path: /api

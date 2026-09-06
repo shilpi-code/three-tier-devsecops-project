@@ -6,13 +6,10 @@ metadata:
   labels: 
     role: api
     env: demo
-spec: 
-  replicas: 2
-  strategy: 
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 25%
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
   selector: 
     matchLabels:
       role: api
